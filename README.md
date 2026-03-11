@@ -1,73 +1,47 @@
-# React + TypeScript + Vite
+# Exercise No. 1: Counter - v1
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+## Objective
 
-Currently, two official plugins are available:
+Create a simple counter that can be **incremented** and **decremented** by clicking buttons.
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) (or [oxc](https://oxc.rs) when used in [rolldown-vite](https://vite.dev/guide/rolldown)) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+## Difficulty
 
-## React Compiler
+Easy
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+## Instructions
 
-## Expanding the ESLint configuration
+Open the file `src/components/Counter/Counter.tsx` and complete the following tasks:
 
-If you are developing a production application, we recommend updating the configuration to enable type-aware lint rules:
+### Task 1: Implement Event Handlers
 
-```js
-export default defineConfig([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
+Create two event handler functions inside the `Counter` component:
 
-      // Remove tseslint.configs.recommended and replace with this
-      tseslint.configs.recommendedTypeChecked,
-      // Alternatively, use this for stricter rules
-      tseslint.configs.strictTypeChecked,
-      // Optionally, add this for stylistic rules
-      tseslint.configs.stylisticTypeChecked,
+- **`handleIncrement`** — increases the `count` state by `1`
+- **`handleDecrement`** — decreases the `count` state by `1`
 
-      // Other configs...
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
+> **Hint:** Use the `setCount` function provided by `useState` to update the state.
+
+### Task 2: Wire Up the Buttons
+
+Attach the event handlers to their corresponding buttons using the `onClick` prop:
+
+- The **`+`** button should call `handleIncrement`
+- The **`-`** button should call `handleDecrement`
+
+## Expected Behavior
+
+- Clicking **`+`** should increase the displayed number by 1.
+- Clicking **`-`** should decrease the displayed number by 1.
+- The counter should start at **0**.
+
+## Getting Started
+
+```bash
+npm install
+npm run dev
 ```
 
-You can also install [eslint-plugin-react-x](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-x) and [eslint-plugin-react-dom](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-dom) for React-specific lint rules:
+## Key Concepts
 
-```js
-// eslint.config.js
-import reactX from 'eslint-plugin-react-x'
-import reactDom from 'eslint-plugin-react-dom'
-
-export default defineConfig([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
-      // Enable lint rules for React
-      reactX.configs['recommended-typescript'],
-      // Enable lint rules for React DOM
-      reactDom.configs.recommended,
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
-```
+- [`useState`](https://react.dev/reference/react/useState) — React hook for managing component state
+- [`onClick`](https://react.dev/learn/responding-to-events) — Event handler prop for responding to click events

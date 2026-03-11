@@ -1,15 +1,17 @@
-import { useState } from "react";
 import "./App.css";
 import ExerciseHeader from "./components/ExerciseHeader/ExerciseHeader";
+import Counter from "./components/Counter/Counter";
 
 function App() {
   return (
     <div className="app-container">
       <ExerciseHeader
-        title="Exercise No. X"
-        description="This is a simple exercise"
+        title="Exercise No. 1: Counter (ver. 1.0)"
+        description="Create a simple counter that can be incremented and decremented by clicking buttons."
       />
-      <div className="exercise-container"></div>
+      <div className="exercise-container">
+        <Counter />
+      </div>
     </div>
   );
 }
